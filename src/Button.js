@@ -6,7 +6,7 @@ const Button = ({ petName }) => {
     <div>
       <ThemeContext.Consumer>
         {([theme]) => (
-          <button
+          <a
             className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold theme transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group"
             style={{ color: theme }}
           >
@@ -20,7 +20,7 @@ const Button = ({ petName }) => {
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
+                
               >
                 <path
                   stroke-linecap="round"
@@ -36,7 +36,7 @@ const Button = ({ petName }) => {
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
+                
               >
                 <path
                   stroke-linecap="round"
@@ -49,7 +49,7 @@ const Button = ({ petName }) => {
             <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">
               Adotp {petName}
             </span>
-          </button>
+          </a>
         )}
       </ThemeContext.Consumer>
     </div>

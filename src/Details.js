@@ -1,11 +1,12 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Component } from "react";
+import { Component, lazy } from "react";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
 import ThemeContext from "./ThemeContext";
-import Modal from "./Modal";
 import Button from "./Button";
+
+const Modal = lazy(() => import("./Modal"));
 
 class Details extends Component {
   state = { loading: true, showModal: false };
@@ -33,16 +34,16 @@ class Details extends Component {
         <div className="pt-8">
           <h1 className=" text-center font-bold text-5xl">{name}</h1>
           <h2 className=" text-center font-semibold text-3xl">{`${animal} - ${breed} -${city} -${state}`}</h2>
-          <div className="flex justify-center py-4">
-            <p className="px-8 py-16 max-w-[50%]">{description}</p>
+          <div className="flex place-content-center  py-4">
+            <p className="px-8 py-14 max-w-[50%]">{description}</p>
             <button onClick={this.toggleModal}>
               <Button petName={name} />
             </button>
           </div>
           {showModal ? (
             <Modal>
-              <div className="bg-slate-800 bg-opacity-50 flex justify-center items-center absolute top-0 right-0 bottom-0 left-0">
-                <div className="bg-white px-16 py-14 rounded-md text-center">
+              <div className="  bg-slate-800 bg-opacity-50 flex justify-center items-center absolute top-0 right-0 bottom-0 left-0">
+                <div className=" bg-white shadow-lg shadow-slate-800 px-16 py-14 rounded-md text-center">
                   <h1 className="text-xl mb-4 font-bold text-slate-500">
                     {" "}
                     Would you like to adopt {name}?
@@ -50,15 +51,15 @@ class Details extends Component {
                   <div className="buttons">
                     <a
                       href="https://bit.ly/pet-adopt"
-                      className="bg-indigo-500 px-7 py-2 ml-2 rounded-md text-md text-white font-semibold"
+                      className="bg-indigo-500 px-4 py-2 mr-2 rounded-md text-md text-white font-semibold"
                     >
-                      yes
+                      YES
                     </a>
                     <button
                       onClick={this.toggleModal}
-                      className="bg-red-500 px-4 py-2 rounded-md text-md text-white"
+                      className="bg-red-500 px-4 py-2 ml-2 rounded-md text-md text-white"
                     >
-                      No
+                      NO
                     </button>
                   </div>
                 </div>
