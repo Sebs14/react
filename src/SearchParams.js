@@ -28,8 +28,9 @@ const SearchParams = () => {
   }
 
   return (
-    <div className="search-params">
+    <div className="my-0 mx-auto w-11/12">
       <form
+      className="p-10 mb-10 rounded-lg bg-gray-200 shadow-lg flex flex-col justify-center items-center  "
         onSubmit={(e) => {
           e.preventDefault();
           requestPets();
@@ -38,6 +39,8 @@ const SearchParams = () => {
         <label htmlFor="location">
           Location
           <input
+            className="rounded-md w-60 mb-5 block"
+            type="text"
             id="location"
             value={location}
             placeholder="Location"
@@ -47,6 +50,7 @@ const SearchParams = () => {
         <label htmlFor="animal">
           Animal
           <select
+          className="rounded-md w-60 mb-5 block"
             id="animal"
             value={animal}
             onChange={(e) => {
@@ -65,6 +69,7 @@ const SearchParams = () => {
         <label htmlFor="breed">
           Breed
           <select
+            className="rounded-md w-60 mb-5 block disabled:opacity-50"
             disabled={!breeds.length}
             id="breed"
             value={breed}
@@ -82,6 +87,7 @@ const SearchParams = () => {
         <label htmlFor="theme">
           Theme
           <select
+            className="rounded-md w-60 mb-5 block"
             value={theme}
             onChange={(e) => setTheme(e.target.value)}
             onBlur={(e) => setTheme(e.target.value)}
@@ -92,7 +98,7 @@ const SearchParams = () => {
             <option value="mediumorchid">Medium Orchid</option>
           </select>
         </label>
-        <button style={{ backgroundColor: theme }}>Submit</button>
+        <button className="rounded-md px-6 py-2 color text-white hover:opacity-50 border-none w-60 mb-5 block" style={{ backgroundColor: theme }}>Submit</button>
       </form>
       <Results pets={pets} />
     </div>

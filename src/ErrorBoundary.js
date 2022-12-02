@@ -11,13 +11,13 @@ class ErrorBoundary extends Component {
     console.error("ErrorBoundary caught an error", error, info);
   }
   componentDidUpdate() {
-    if(this.state.hasError) {
-        setTimeout(() => this.setState({redirect: true}), 5000)
+    if (this.state.hasError) {
+      setTimeout(() => this.setState({ redirect: true }), 5000);
     }
   }
   render() {
-    if(this.state.redirect){
-        return <Navigate to="/" />
+    if (this.state.redirect) {
+      return <Navigate to="/" />;
     } else if (this.state.hasError) {
       return (
         <h2>
